@@ -32,6 +32,8 @@ npm start
 
 ## Additional info
 
+By default the app makes requiest to `sport=upcoming` with 2-minute delay. This is configurable with `IN_PLAY_ODDS_DELAY` environmental variable (see `.env.example`).
+
 Once running, the current odds from cache are available at `http://localhost:8082/odds` with the following params: `matchId`, `bookmakerKey`, `marketKey` (optional, defaults to `h2h`).
 
 Example:
