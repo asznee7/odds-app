@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  oddsapp:
+    image: oddsapp
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8082:8082
+    volumes:
+      - .:/usr/src/app
+    links: 
+      - mongodb
+    environment: 
+      - MONGO_URI
+      - ODDS_API_BASE
+      - ODDS_API_KEY
+      - IN_PLAY_ODDS_DELAY
+  mongodb:
+    image: mongo:bionic
+    ports:
+      - 27016:27017
+    volumes:
+      - data:/data/db
+
+volumes: 
+  data:
